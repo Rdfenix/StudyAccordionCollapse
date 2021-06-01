@@ -1,9 +1,11 @@
 import {
   Component,
+  ContentChild,
   ElementRef,
   OnInit,
   QueryList,
   ViewChildren,
+  TemplateRef,
 } from '@angular/core';
 
 @Component({
@@ -13,6 +15,10 @@ import {
 })
 export class CollapseComponent implements OnInit {
   constructor() {}
+
+  @ContentChild('body', { static: false }) bodyTemplate:
+    | TemplateRef<any>
+    | any;
 
   @ViewChildren('collapseSection') collapse: QueryList<ElementRef> | undefined;
   @ViewChildren('innerCollapse') innerCollapse:

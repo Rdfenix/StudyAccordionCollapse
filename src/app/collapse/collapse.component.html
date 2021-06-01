@@ -6,7 +6,9 @@
     <div (click)="innerFuncTest(i)">
       <span>{{item.name}}</span>
       <div style="margin-left: 15px;" class="inner-collapse" #innerCollapse>
-        <app-internal-list [testeArray]="item.things.contentArray"></app-internal-list>
+        <ng-container [ngTemplateOutlet]="bodyTemplate"
+          [ngTemplateOutletContext]="{$implicit:item.things.contentArray}">
+        </ng-container>
       </div>
     </div>
   </section>
