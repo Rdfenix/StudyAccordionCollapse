@@ -16,14 +16,14 @@ import {
 export class CollapseComponent implements OnInit {
   constructor() {}
 
-  @ContentChild('body', { static: false }) bodyTemplate:
-    | TemplateRef<any>
-    | any;
+  @ContentChild('body', { static: false }) bodyTemplate: TemplateRef<any> | any;
 
   @ViewChildren('collapseSection') collapse: QueryList<ElementRef> | undefined;
   @ViewChildren('innerCollapse') innerCollapse:
     | QueryList<ElementRef>
     | undefined;
+
+  showInnerContent: boolean = false;
 
   teste: Array<any> = [
     {
@@ -70,10 +70,15 @@ export class CollapseComponent implements OnInit {
   testFunc(index: number): void {
     const element = this.collapse?.toArray()[index].nativeElement;
 
+    /** verificar uma melhor forma de fazer isso */
     if (element.style.maxHeight) {
       element.style.maxHeight = null;
+      this.showInnerContent = false;
     } else {
-      element.style.maxHeight = `${element.scrollHeight}px`;
+      this.showInnerContent = true;
+      setTimeout(() => {
+        element.style.maxHeight = `${element.scrollHeight}px`;
+      }, 200);
     }
   }
 

@@ -5,7 +5,7 @@
   <section class="collapse-container" #collapseSection>
     <div (click)="innerFuncTest(i)">
       <span>{{item.name}}</span>
-      <div style="margin-left: 15px;" class="inner-collapse" #innerCollapse>
+      <div *ngIf="showInnerContent" style="margin-left: 15px;" class="inner-collapse" #innerCollapse>
         <ng-container [ngTemplateOutlet]="bodyTemplate"
           [ngTemplateOutletContext]="{$implicit:item.things.contentArray}">
         </ng-container>
