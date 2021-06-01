@@ -1,0 +1,13 @@
+<div *ngFor="let item of teste; index as i" class="collapse">
+  <header (click)="testFunc(i)">
+    <p>collapse works!</p>
+  </header>
+  <section class="collapse-container" #collapseSection>
+    <div (click)="innerFuncTest(i)">
+      <span>{{item.name}}</span>
+      <div style="margin-left: 15px;" class="inner-collapse" #innerCollapse>
+        <app-internal-list [testeArray]="item.things.contentArray"></app-internal-list>
+      </div>
+    </div>
+  </section>
+</div>

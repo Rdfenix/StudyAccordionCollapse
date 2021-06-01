@@ -3,10 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CollapseComponent } from './collapse/collapse.component';
+import { InternalListComponent } from './internal-list/internal-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CollapseComponent,
+    InternalListComponent
   ],
   imports: [
     BrowserModule,
