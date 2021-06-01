@@ -76,6 +76,7 @@ export class CollapseComponent implements OnInit {
       this.showInnerContent = false;
     } else {
       this.showInnerContent = true;
+      // para dar tempo dele capturar o tamanho atual do elemento e computar na tela
       setTimeout(() => {
         element.style.maxHeight = `${element.scrollHeight}px`;
       }, 200);
